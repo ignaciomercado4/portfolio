@@ -13,9 +13,9 @@ body {
 .peeking-gopher {
   position: absolute;
   opacity: 50%;
-  rotate: 25deg;
+  rotate: 70deg;
   bottom: 600px;
-  left: 0px; 
+  left: -90px; 
   width: 200px;
   height: auto;
 }
