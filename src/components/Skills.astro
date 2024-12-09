@@ -1,0 +1,19 @@
+---
+const skills = [
+  'HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'JWT', 
+  'Cypress.io', 'React', 'jQuery', 'Bootstrap', 'TailwindCSS', 
+  'MVC', 'SOLID', 'Empatía', 'Trabajo en equipo', 'Inglés'
+];
+---
+
+<section class="animate-section py-12">
+  <h2 class="text-3xl font-semibold text-primary mb-8 text-center">Aptitudes</h2>
+  
+  <div class="flex flex-wrap justify-center gap-3">
+    {skills.map(skill => (
+      <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm">
+        {skill}
+      </span>
+    ))}
+  </div>
+</section>
