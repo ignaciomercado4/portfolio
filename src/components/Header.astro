@@ -1,0 +1,23 @@
+---
+const contactInfo = {
+  email: 'igmercado46@gmail.com',
+  phone: '+54 376 414 7435',
+  location: 'Posadas, Misiones'
+};
+---
+
+<header class="animate-section py-16 text-center">
+  <h1 class="text-5xl font-bold text-primary mb-4">Ignacio Gastón Mercado</h1>
+  <h2 class="text-2xl text-gray-600 mb-6">Desarrollador Full Stack</h2>
+  <div class="flex justify-center space-x-4 text-gray-700">
+    <a href={`mailto:${contactInfo.email}`} class="hover:text-primary">
+      {contactInfo.email}
+    </a>
+    <span>•</span>
+    <a href={`tel:${contactInfo.phone}`} class="hover:text-primary">
+      {contactInfo.phone}
+    </a>
+    <span>•</span>
+    <span>{contactInfo.location}</span>
+  </div>
+</header>
