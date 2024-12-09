@@ -9,10 +9,13 @@ export function initScrollAnimations() {
       opacity: 0,
       y: 100,
       duration: 1,
+      ease: 'power2.out', 
       scrollTrigger: {
         trigger: section,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
+        start: 'top 90%',         
+        end: 'bottom 10%',
+        toggleActions: 'play none none reverse',
+        once: true 
       }
     });
   });

@@ -1,18 +1,18 @@
 ---
-const skills = [
-  'HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'JWT', 
-  'Cypress.io', 'React', 'jQuery', 'Bootstrap', 'TailwindCSS', 
-  'MVC', 'SOLID', 'Empatía', 'Trabajo en equipo', 'Inglés'
+const technologies = [
+    'HTML', 'CSS', 'JavaScript', 'React.js', 'jQuery', 'NodeJS',
+    'Express.js', 'Cypress.io', 'Go', 'Gin', 'GORM', 'SQLite', 
+    'MySQL', 'Microsoft SQL Server'
 ];
 ---
 
-<section class="animate-section py-12">
+<section class="animate-section py-12 min-h-[50vh]"> <!-- Añadido min-h-[50vh] -->
   <h2 class="text-3xl font-semibold text-primary mb-8 text-center">Aptitudes</h2>
   
   <div class="flex flex-wrap justify-center gap-3">
-    {skills.map(skill => (
+    {technologies.map(tech => (
       <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm">
-        {skill}
+        {tech}
       </span>
     ))}
   </div>
