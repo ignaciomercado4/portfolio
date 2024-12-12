@@ -21,29 +21,76 @@ const projects = [
 ];
 ---
 
-<section class="animate-section py-12 border-b">
-  <h2 class="text-3xl font-semibold text-primary mb-8 text-center">Proyectos</h2>
-  
-  <div class="grid md:grid-cols-2 gap-6">
-    {projects.map(project => (
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-secondary mb-3">{project.name}</h3>
-        <p class="text-slate-900 mb-4">{project.description}</p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          {project.stack.map(tech => (
-            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-              {tech}
-            </span>
-          ))}
-        </div>
-        <a 
-          href={project.githubLink} 
-          target="_blank" 
-          class="text-primary hover:underline"
+<section class="animate-section py-16 bg-slate-900 text-white border-b">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto mb-12">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        Projects
+      </h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div 
+          class="project-card border border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-500 group"
+          data-project={project.name.toLowerCase()}
         >
-          Ver en GitHub
-        </a>
-      </div>
-    ))}
+          <div class="p-6 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-white transition-colors group-hover:text-cyan-400">
+                {project.name}
+              </h3>
+              <a 
+                href={project.githubLink} 
+                target="_blank" 
+                class="text-slate-500 hover:text-cyan-400 transition-colors"
+                aria-label="GitHub Repository"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-12">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </a>
+            </div>
+            
+            <p class="text-slate-400 mb-4 flex-grow">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {project.stack.map(tech => (
+                <span class="px-2 py-1 text-xs rounded-full bg-slate-800 text-slate-300 border border-slate-700 group-hover:bg-cyan-900 group-hover:text-cyan-200 transition-colors">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  @keyframes projectFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .project-card {
+    animation: projectFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.project-card').forEach((card, index) => {
+    card.style.setProperty('--index', index);
+  });
+</script>

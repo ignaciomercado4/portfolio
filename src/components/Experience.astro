@@ -1,17 +1,86 @@
-<section class="animate-section py-12 border-b">
-    <h2 class="text-3xl font-semibold text-primary mb-8 text-center">Experience</h2>
-    
-    <div class="space-y-6">
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-bold text-secondary mb-2">Prestadores Sanatoriales S.A</h3>
-        <p class="text-gray-500 mb-2">Software Developement Internship</p>
-        <p class="text-gray-500 mb-4">May 2024 - August 2024</p>
-        <ul class="list-disc list-inside text-slate-900">
-          <li>Developed new backend funcionalities for a 6000+ user app</li>
-          <li>Designed and implemented a new authentication system</li>
+---
+const experiences = [
+  {
+    company: 'Prestadores Sanatoriales S.A',
+    role: 'Software Development Internship',
+    period: 'May 2024 - August 2024',
+    highlights: [
+      'Developed new backend functionalities for a 6000+ user app',
+      'Designed and implemented a new authentication system'
+    ],
+    stack: ['PHP', 'Laravel', 'JavaScript', 'jQuery']
+  }
+];
+---
 
-        </ul>
-        <p class="mt-4 text-sm text-gray-500">Stack: PHP - Laravel - JavaScript - jQuery</p>
-      </div>
+<section class="animate-section py-16 bg-slate-900 border-b text-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto mb-12">
+      <h2 class="text-4xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        Experience
+      </h2>
     </div>
+    
+    <div class="space-y-8 max-w-3xl mx-auto">
+      {experiences.map((exp, index) => (
+        <div 
+          class="experience-card border border-slate-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-cyan-500 group"
+          data-company={exp.company.toLowerCase().replace(/\s+/g, '-')}
+        >
+          <div class="p-6 flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-white transition-colors group-hover:text-cyan-400">
+                {exp.company}
+              </h3>
+              <div class="flex justify-between items-center">
+                <p class="text-slate-400">{exp.role}</p>
+                <span class="text-sm text-slate-500">{exp.period}</span>
+              </div>
+            </div>
+            
+            <ul class="text-slate-300 space-y-2 mb-4 pl-4 border-l-2 border-slate-700 group-hover:border-cyan-500 transition-colors">
+              {exp.highlights.map(highlight => (
+                <li class="relative pl-4 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-slate-500 before:rounded-full group-hover:before:bg-cyan-400">
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {exp.stack.map(tech => (
+                <span class="px-2 py-1 text-xs rounded-full bg-slate-800 text-slate-300 border border-slate-700 group-hover:bg-cyan-900 group-hover:text-cyan-200 transition-colors">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
+
+<style>
+  @keyframes experienceFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .experience-card {
+    animation: experienceFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.experience-card').forEach((card, index) => {
+    card.style.setProperty('--index', index);
+  });
+</script>
