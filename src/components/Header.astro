@@ -9,9 +9,19 @@ const contactInfo = {
 <div>
     <img src="gopher.webp" class="peeking-gopher" alt="Cute little gopher" >
 </div>
-<header class="py-16 text-center">
-  <h1 class="text-5xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">Ignacio Gastón Mercado</h1>
-  <h2 class="text-2xl text-slate-100 mb-6">Software Developer</h2>
+<header class="py-16 text-center relative">
+  <h1 class="text-5xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
+    Ignacio Gastón Mercado
+  </h1>
+  <h2 class="text-2xl text-slate-100 mb-6 flex justify-center items-center space-x-2">
+    <span>Software Developer</span>
+    <span class="text-sm text-green-400 font-medium flex items-center space-x-1">
+      <div class="relative inline-flex items-center ml-2">
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+      </div>
+      <span>Open for work</span>
+    </span>
+  </h2>
   <div class="flex justify-center space-x-4 text-slate-100">
     <a href={`mailto:${contactInfo.email}`} class="hover:text-primary">
       {contactInfo.email}
@@ -26,7 +36,3 @@ const contactInfo = {
     </a>
   </div>
 </header>
-
-<script>
-  
-</script>
